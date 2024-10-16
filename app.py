@@ -40,20 +40,34 @@ class CalibratingGroupbox(BaseGroupbox):
 
         row_count = count(0, 1)
 
-        self.l_A1_edit_calibration = self.add_row(next(row_count), 'Длина участка А-1, [мм], l<sub>A1</sub>: ', 75)
-        self.l_12_edit_calibration = self.add_row(next(row_count), 'Длина участка 1-2, [мм], l<sub>12</sub>: ', 195)
-        self.l_2B_edit_calibration = self.add_row(next(row_count), 'Длина участка 2-B, [мм], l<sub>2B</sub>: ', 265)
-        self.n_edit_calibration = self.add_row(next(row_count), 'Частота вращения, [об\мин], n: ', 1500)
-        self.m_1_edit_calibration = self.add_row(next(row_count), 'Масса груза 1, [г], m<sub>1</sub>: ', 2.667)
-        self.r_1_edit_calibration = self.add_row(next(row_count), 'Радиус груза 1, [мм], R<sub>1</sub>: ', 62)
-        self.phi_1_edit_calibration = self.add_row(next(row_count), f'Фаза груза 1, [град], {chr(966)}<sub>1</sub>: ', 190)
-        self.m_2_edit_calibration = self.add_row(next(row_count), 'Масса груза 2, [г], m<sub>2</sub>: ', 2.667)
-        self.r_2_edit_calibration = self.add_row(next(row_count), 'Радиус груза 2, [мм], R<sub>2</sub>: ', 62)
-        self.phi_2_edit_calibration = self.add_row(next(row_count), f'Фаза груза 2, [град], {chr(966)}<sub>2</sub>: ', 190)
-        self.x_A_edit_calibration = self.add_row(next(row_count), 'Вибрации в А, [мкм], x<sub>A</sub>: ', 6.6)
-        self.phi_A_edit_calibration = self.add_row(next(row_count), f'Фаза вибрации в А, [град], {chr(966)}<sub>A</sub>: ', 83)
-        self.x_B_edit_calibration = self.add_row(next(row_count), 'Вибрации в B, [мкм], x<sub>B</sub>: ', 7)
-        self.phi_B_edit_calibration = self.add_row(next(row_count), f'Фаза вибрации в B, [град], {chr(966)}<sub>B</sub>: ', 85)
+        self.l_A1_edit_calibration = self.add_row(
+            next(row_count), 'Длина участка А-1, [мм], l<sub>A1</sub>: ', 75)
+        self.l_12_edit_calibration = self.add_row(
+            next(row_count), 'Длина участка 1-2, [мм], l<sub>12</sub>: ', 195)
+        self.l_2B_edit_calibration = self.add_row(
+            next(row_count), 'Длина участка 2-B, [мм], l<sub>2B</sub>: ', 265)
+        self.n_edit_calibration = self.add_row(
+            next(row_count), 'Частота вращения, [об\мин], n: ', 1500)
+        self.m_1_edit_calibration = self.add_row(
+            next(row_count), 'Масса груза 1, [г], m<sub>1</sub>: ', 2.667)
+        self.r_1_edit_calibration = self.add_row(
+            next(row_count), 'Радиус груза 1, [мм], R<sub>1</sub>: ', 62)
+        self.phi_1_edit_calibration = self.add_row(
+            next(row_count), f'Фаза груза 1, [град], {chr(966)}<sub>1</sub>: ', 190)
+        self.m_2_edit_calibration = self.add_row(
+            next(row_count), 'Масса груза 2, [г], m<sub>2</sub>: ', 2.667)
+        self.r_2_edit_calibration = self.add_row(
+            next(row_count), 'Радиус груза 2, [мм], R<sub>2</sub>: ', 62)
+        self.phi_2_edit_calibration = self.add_row(
+            next(row_count), f'Фаза груза 2, [град], {chr(966)}<sub>2</sub>: ', 190)
+        self.x_A_edit_calibration = self.add_row(
+            next(row_count), 'Вибрации в А, [мкм], x<sub>A</sub>: ', 6.6)
+        self.phi_A_edit_calibration = self.add_row(
+            next(row_count), f'Фаза вибрации в А, [град], {chr(966)}<sub>A</sub>: ', 83)
+        self.x_B_edit_calibration = self.add_row(
+            next(row_count), 'Вибрации в B, [мкм], x<sub>B</sub>: ', 7)
+        self.phi_B_edit_calibration = self.add_row(
+            next(row_count), f'Фаза вибрации в B, [град], {chr(966)}<sub>B</sub>: ', 85)
 
 
 class BalancingGroupbox(BaseGroupbox):
@@ -64,16 +78,34 @@ class BalancingGroupbox(BaseGroupbox):
 
         row_count = count(0, 1)
 
-        self.l_A1_edit_balancing = self.add_row(next(row_count),'Длина участка А-1, [мм], l<sub>A1</sub>: ' ,75)
-        self.l_12_edit_balancing = self.add_row(next(row_count),'Длина участка 1-2, [мм], l<sub>12</sub>: ' ,195)
-        self.l_2B_edit_balancing = self.add_row(next(row_count),'Длина участка 2-B, [мм], l<sub>2B</sub>: ' ,265)
-        self.n_edit_balancing = self.add_row(next(row_count),'Частота вращения, [об\мин], n: ' ,1500)
-        self.k_A_edit_balancing = self.add_row(next(row_count),'Жёсткость в опоре A, [Н/мкм], k<sub>A</sub>: ' ,0.84)
-        self.phi_A_edit_balancing = self.add_row(next(row_count),f'Фаза в опоре A, [град], {chr(966)}<sub>A</sub>: ' ,107)
-        self.k_B_edit_balancing = self.add_row(next(row_count),'Жёсткость в опоре B, [Н/мкм], k<sub>B</sub>: ' ,0.38)
-        self.phi_B_edit_balancing = self.add_row(next(row_count),f'Фаза в опоре B, [град], {chr(966)}<sub>B</sub>: ' ,105)
-        self.r_1_edit_balancing = self.add_row(next(row_count),'Радиус груза 1, [мм], R<sub>1</sub>: ' ,62)
-        self.r_2_edit_balancing = self.add_row(next(row_count), 'Радиус груза 2, [мм], R<sub>2</sub>: ' ,62)
+        self.l_A1_edit_balancing = self.add_row(
+            next(row_count), 'Длина участка А-1, [мм], l<sub>A1</sub>: ', 75)
+        self.l_12_edit_balancing = self.add_row(
+            next(row_count), 'Длина участка 1-2, [мм], l<sub>12</sub>: ', 195)
+        self.l_2B_edit_balancing = self.add_row(
+            next(row_count), 'Длина участка 2-B, [мм], l<sub>2B</sub>: ', 265)
+        self.n_edit_balancing = self.add_row(
+            next(row_count), 'Частота вращения, [об\мин], n: ', 1500)
+        self.k_A_edit_balancing = self.add_row(
+            next(row_count), 'Жёсткость в опоре A, [Н/мкм], k<sub>A</sub>: ', 0.84)
+        self.phi_A_edit_balancing = self.add_row(
+            next(row_count), f'Фаза жёсткости в A, [град], {chr(966)}<sub>A</sub>: ', 107)
+        self.k_B_edit_balancing = self.add_row(
+            next(row_count), 'Жёсткость в опоре B, [Н/мкм], k<sub>B</sub>: ', 0.38)
+        self.phi_B_edit_balancing = self.add_row(
+            next(row_count), f'Фаза жёсткости в B, [град], {chr(966)}<sub>B</sub>: ', 105)
+        self.r_1_edit_balancing = self.add_row(
+            next(row_count), 'Радиус груза 1, [мм], R<sub>1</sub>: ', 62)
+        self.r_2_edit_balancing = self.add_row(
+            next(row_count), 'Радиус груза 2, [мм], R<sub>2</sub>: ', 62)
+        self.x_A_edit_balancing = self.add_row(
+            next(row_count), 'Вибрации в А, [мкм], x<sub>A</sub>: ', 6.6)
+        self.phi_Ax_edit_balancing = self.add_row(
+            next(row_count), f'Фаза вибрации в А, [град], {chr(966)}<sub>xA</sub>: ', 83)
+        self.x_B_edit_balancing = self.add_row(
+            next(row_count), 'Вибрации в B, [мкм], x<sub>B</sub>: ', 7)
+        self.phi_Bx_edit_balancing = self.add_row(
+            next(row_count), f'Фаза вибрации в B, [град], {chr(966)}<sub>xB</sub>: ', 85)
 
 
 class Widget(QWidget):
@@ -184,7 +216,14 @@ class Widget(QWidget):
         phi_B_bal = self.balancing_groupbox.phi_B_edit_balancing.value()
         r_1_bal = self.balancing_groupbox.r_1_edit_balancing.value()
         r_2_bal = self.balancing_groupbox.r_2_edit_balancing.value()
-
+        x_A_bal = self.balancing_groupbox.x_A_edit_balancing.value()
+        phi_Ax_bal = self.balancing_groupbox.phi_Ax_edit_balancing.value()
+        x_B_bal = self.balancing_groupbox.x_B_edit_balancing.value()
+        phi_Bx_bal = self.balancing_groupbox.phi_Bx_edit_balancing.value()
+        n_bal = self.balancing_groupbox.n_edit_balancing.value()
+        a_bal = self.balancing_groupbox.l_A1_edit_balancing.value()
+        b_bal = self.balancing_groupbox.l_12_edit_balancing.value()
+        c_bal = self.balancing_groupbox.l_2B_edit_balancing.value()
         R_1 = polar(r_1, phi_1)
         R_2 = polar(r_2, phi_2)
         x_A = polar(x_A, phi_A)
@@ -193,7 +232,8 @@ class Widget(QWidget):
         w = 2 * np.pi * n / 60
 
         z_A = 0
-        z_1, z_2, z_B = get_l(self.mode_identifiers[self.mode_combo.currentIndex()], a, b, c)
+        z_1, z_2, z_B = get_l(
+            self.mode_identifiers[self.mode_combo.currentIndex()], a, b, c)
 
         T_1 = m_1*R_1
         T_2 = m_2*R_2
@@ -206,8 +246,10 @@ class Widget(QWidget):
 
         k_A = D_A/x_A
         k_B = D_B/x_B
-        self.k_A_edit.setText(f'{np.abs(k_A):.2f}{chr(215)}{np.rad2deg(np.angle(k_A))%360:.2f}{chr(176)}')
-        self.k_B_edit.setText(f'{np.abs(k_B):.2f}{chr(215)}{np.rad2deg(np.angle(k_B))%360:.2f}{chr(176)}')
+        self.k_A_edit.setText(
+            f'{np.abs(k_A):.2f}{chr(215)}{np.rad2deg(np.angle(k_A))%360:.2f}{chr(176)}')
+        self.k_B_edit.setText(
+            f'{np.abs(k_B):.2f}{chr(215)}{np.rad2deg(np.angle(k_B))%360:.2f}{chr(176)}')
 
         z_min = np.min([z_A, z_B, z_1, z_2])
         z_max = np.max([z_A, z_B, z_1, z_2])
@@ -221,24 +263,24 @@ class Widget(QWidget):
                        color='blue', marker='o', markersize=5)
         self.axes.plot([0, D_2.real], [z_2, z_2], [0, D_2.imag],
                        color='blue', marker='o', markersize=5)
-        
+
         self.axes.plot([-np.abs(D_1), np.abs(D_1)], [z_1, z_1], [0, 0],
-                color='blue', ls='-.',lw=1,alpha=0.4)
+                       color='blue', ls='-.', lw=1, alpha=0.4)
         self.axes.plot([0, 0], [z_1, z_1], [-np.abs(D_1), np.abs(D_1)],
-                color='blue', ls='-.',lw=1,alpha=0.4)
+                       color='blue', ls='-.', lw=1, alpha=0.4)
         self.axes.plot([-np.abs(D_2), np.abs(D_2)], [z_2, z_2], [0, 0],
-                color='blue', ls='-.',lw=1,alpha=0.4)
+                       color='blue', ls='-.', lw=1, alpha=0.4)
         self.axes.plot([0, 0], [z_2, z_2], [-np.abs(D_2), np.abs(D_2)],
-                color='blue', ls='-.',lw=1,alpha=0.4)
-        
+                       color='blue', ls='-.', lw=1, alpha=0.4)
+
         self.axes.plot([-np.abs(D_A), np.abs(D_A)], [z_A, z_A], [0, 0],
-                color='red', ls='-.',lw=1,alpha=0.4)
+                       color='red', ls='-.', lw=1, alpha=0.4)
         self.axes.plot([0, 0], [z_A, z_A], [-np.abs(D_A), np.abs(D_A)],
-                color='red', ls='-.',lw=1,alpha=0.4)
+                       color='red', ls='-.', lw=1, alpha=0.4)
         self.axes.plot([-np.abs(D_B), np.abs(D_B)], [z_B, z_B], [0, 0],
-                color='red', ls='-.',lw=1,alpha=0.4)
+                       color='red', ls='-.', lw=1, alpha=0.4)
         self.axes.plot([0, 0], [z_B, z_B], [-np.abs(D_B), np.abs(D_B)],
-                color='red', ls='-.',lw=1,alpha=0.4)
+                       color='red', ls='-.', lw=1, alpha=0.4)
         p1 = Circle((0, 0), np.abs(D_A), color='red', alpha=0.2)
         p2 = Circle((0, 0), np.abs(D_1), color='blue', alpha=0.2)
         p3 = Circle((0, 0), np.abs(D_2), color='blue', alpha=0.2)
@@ -268,48 +310,58 @@ class Widget(QWidget):
         self.axes.set_title('Пересчёт дисбалансов')
         self.axes.set_box_aspect([1, 1.25, 1])
 
-        D_A = polar(k_A_bal, phi_A_bal)*x_A
-        D_B = polar(k_B_bal, phi_B_bal)*x_B
+        x_A_bal_c = polar(x_A_bal, phi_Ax_bal)
+        x_B_bal_c = polar(x_B_bal, phi_Bx_bal)
+        D_A_bal = polar(k_A_bal, phi_A_bal)*x_A_bal_c
+        D_B_bal = polar(k_B_bal, phi_B_bal)*x_B_bal_c
 
-        D_1 = (D_A*(z_A-z_2)+D_B*(z_B-z_2))/(z_1-z_2)
-        D_2 = (D_A*(z_A-z_1)+D_B*(z_B-z_1))/(z_2-z_1)
+        z_A_bal = 0
+        z_1_bal, z_2_bal, z_B_bal = get_l(
+            self.mode_identifiers[self.mode_combo.currentIndex()], a_bal, b_bal, c_bal)
+        D_1_bal = (D_A_bal*(z_A_bal-z_2_bal)+D_B_bal *
+                   (z_B_bal-z_2_bal))/(z_1_bal-z_2_bal)
+        D_2_bal = (D_A_bal*(z_A_bal-z_1_bal)+D_B_bal *
+                   (z_B_bal-z_1_bal))/(z_2_bal-z_1_bal)
+        w_bal = 2 * np.pi * n_bal / 60
 
-        M_1 = D_1 * 1e+6 / (w ** 2 * r_1_bal)
-        M_2 = D_2 * 1e+6 / (w ** 2 * r_2_bal)
+        M_1 = D_1_bal * 1e+6 / (w_bal ** 2 * r_1_bal)
+        M_2 = D_2_bal * 1e+6 / (w_bal ** 2 * r_2_bal)
 
-        self.m_1_edit.setText(f'{np.abs(M_1):.2f}{chr(215)}{np.rad2deg(np.angle(M_1))%360:.2f}{chr(176)}')
-        self.m_2_edit.setText(f'{np.abs(M_2):.2f}{chr(215)}{np.rad2deg(np.angle(M_2))%360:.2f}{chr(176)}')
+        self.m_1_edit.setText(
+            f'{np.abs(M_1):.2f}{chr(215)}{np.rad2deg(np.angle(M_1))%360:.2f}{chr(176)}')
+        self.m_2_edit.setText(
+            f'{np.abs(M_2):.2f}{chr(215)}{np.rad2deg(np.angle(M_2))%360:.2f}{chr(176)}')
 
-        z_min = np.min([z_A, z_B, z_1, z_2])
-        z_max = np.max([z_A, z_B, z_1, z_2])
+        z_min = np.min([z_A_bal, z_B_bal, z_1_bal, z_2_bal])
+        z_max = np.max([z_A_bal, z_B_bal, z_1_bal, z_2_bal])
         self.axes2.plot([0, 0], [z_min, z_max], [0, 0], lw=5, color='k')
-        self.axes2.plot([0, polar(r_1_bal, np.rad2deg(np.angle(M_1))).real], [z_1, z_1], [0, polar(r_1_bal, np.rad2deg(np.angle(M_1))).imag],
+        self.axes2.plot([0, polar(r_1_bal, np.rad2deg(np.angle(M_1))).real], [z_1_bal, z_1_bal], [0, polar(r_1_bal, np.rad2deg(np.angle(M_1))).imag],
                         color='red', marker='o', markersize=5)
-        self.axes2.plot([0, polar(r_2_bal, np.rad2deg(np.angle(M_2))).real], [z_2, z_2], [0, polar(r_2_bal, np.rad2deg(np.angle(M_2))).imag],
+        self.axes2.plot([0, polar(r_2_bal, np.rad2deg(np.angle(M_2))).real], [z_2_bal, z_2_bal], [0, polar(r_2_bal, np.rad2deg(np.angle(M_2))).imag],
                         color='red', marker='o', markersize=5)
-        self.axes2.plot([-r_1_bal, r_1_bal], [z_1, z_1], [0, 0],
-                        color='blue', ls='-.',lw=1,alpha=0.4)
-        self.axes2.plot([0, 0], [z_1, z_1], [-r_1_bal, r_1_bal],
-                color='blue', ls='-.',lw=1,alpha=0.4)
-        self.axes2.plot([-r_2_bal, r_2_bal], [z_2, z_2], [0, 0],
-                color='blue', ls='-.',lw=1,alpha=0.4)
-        self.axes2.plot([0, 0], [z_2, z_2], [-r_2_bal, r_2_bal],
-                color='blue', ls='-.',lw=1,alpha=0.4)
+        self.axes2.plot([-r_1_bal, r_1_bal], [z_1_bal, z_1_bal], [0, 0],
+                        color='blue', ls='-.', lw=1, alpha=0.4)
+        self.axes2.plot([0, 0], [z_1_bal, z_1_bal], [-r_1_bal, r_1_bal],
+                        color='blue', ls='-.', lw=1, alpha=0.4)
+        self.axes2.plot([-r_2_bal, r_2_bal], [z_2_bal, z_2_bal], [0, 0],
+                        color='blue', ls='-.', lw=1, alpha=0.4)
+        self.axes2.plot([0, 0], [z_2_bal, z_2_bal], [-r_2_bal, r_2_bal],
+                        color='blue', ls='-.', lw=1, alpha=0.4)
         p5 = Circle((0, 0), r_1_bal, color='blue', alpha=0.2)
         p6 = Circle((0, 0), r_2_bal, color='blue', alpha=0.2)
 
         self.axes2.add_patch(p5)
         self.axes2.add_patch(p6)
 
-        art3d.pathpatch_2d_to_3d(p5, z=z_1, zdir="y")
-        art3d.pathpatch_2d_to_3d(p6, z=z_2, zdir="y")
+        art3d.pathpatch_2d_to_3d(p5, z=z_1_bal, zdir="y")
+        art3d.pathpatch_2d_to_3d(p6, z=z_2_bal, zdir="y")
 
         max2 = np.max([r_1_bal, r_2_bal])
         self.axes2.set_xlim(-max2, max2)
         self.axes2.set_zlim(-max2, max2)
         # self.axes2.text(0, z_A, 0.15*max2, r'$z_A$')
-        self.axes2.text(0, z_1, 0.15*max2, r'$z_1$')
-        self.axes2.text(0, z_2, 0.15*max2, r'$z_2$')
+        self.axes2.text(0, z_1_bal, 0.15*max2, r'$z_1$')
+        self.axes2.text(0, z_2_bal, 0.15*max2, r'$z_2$')
         # self.axes2.text(0, z_B, 0.15*max2, r'$z_B$')
         self.axes2.set_xlabel('x, [мм]')
         self.axes2.set_ylabel('z, [мм]')
