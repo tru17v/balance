@@ -40,20 +40,20 @@ class CalibratingGroupbox(BaseGroupbox):
 
         row_count = count(0, 1)
 
-        self.l_A1_edit_calibration = self.add_row(next(row_count), 'l_A1: ', 75)
-        self.l_12_edit_calibration = self.add_row(next(row_count), 'l_12: ', 195)
-        self.l_2B_edit_calibration = self.add_row(next(row_count), 'l_2B: ', 265)
-        self.n_edit_calibration = self.add_row(next(row_count), 'Частота вращения, [об\мин]: ', 1506)
-        self.m_1_edit_calibration = self.add_row(next(row_count), 'Масса груза 1, [г]: ', 2.667)
-        self.r_1_edit_calibration = self.add_row(next(row_count), 'Радиус груза 1, [мм]: ', 62)
-        self.phi_1_edit_calibration = self.add_row(next(row_count), 'Фаза груза 1, [град]: ', 190)
-        self.m_2_edit_calibration = self.add_row(next(row_count), 'Масса груза 2, [г]: ', 2.667)
-        self.r_2_edit_calibration = self.add_row(next(row_count), 'Радиус груза 2, [мм]: ', 62)
-        self.phi_2_edit_calibration = self.add_row(next(row_count), 'Фаза груза 2, [град]: ', 190)
-        self.x_A_edit_calibration = self.add_row(next(row_count), 'x_A: ', 6.6)
-        self.phi_A_edit_calibration = self.add_row(next(row_count), 'phi_A: ', 83)
-        self.x_B_edit_calibration = self.add_row(next(row_count), 'x_B: ', 7)
-        self.phi_B_edit_calibration = self.add_row(next(row_count), 'phi_B: ', 85)
+        self.l_A1_edit_calibration = self.add_row(next(row_count), 'Длина участка А-1, [мм], l<sub>A1</sub>: ', 75)
+        self.l_12_edit_calibration = self.add_row(next(row_count), 'Длина участка 1-2, [мм], l<sub>12</sub>: ', 195)
+        self.l_2B_edit_calibration = self.add_row(next(row_count), 'Длина участка 2-B, [мм], l<sub>2B</sub>: ', 265)
+        self.n_edit_calibration = self.add_row(next(row_count), 'Частота вращения, [об\мин], n: ', 1500)
+        self.m_1_edit_calibration = self.add_row(next(row_count), 'Масса груза 1, [г], m<sub>1</sub>: ', 2.667)
+        self.r_1_edit_calibration = self.add_row(next(row_count), 'Радиус груза 1, [мм], R<sub>1</sub>: ', 62)
+        self.phi_1_edit_calibration = self.add_row(next(row_count), f'Фаза груза 1, [град], {chr(966)}<sub>1</sub>: ', 190)
+        self.m_2_edit_calibration = self.add_row(next(row_count), 'Масса груза 2, [г], m<sub>2</sub>: ', 2.667)
+        self.r_2_edit_calibration = self.add_row(next(row_count), 'Радиус груза 2, [мм], R<sub>2</sub>: ', 62)
+        self.phi_2_edit_calibration = self.add_row(next(row_count), f'Фаза груза 2, [град], {chr(966)}<sub>2</sub>: ', 190)
+        self.x_A_edit_calibration = self.add_row(next(row_count), 'Вибрации в А, [мкм], x<sub>A</sub>: ', 6.6)
+        self.phi_A_edit_calibration = self.add_row(next(row_count), f'Фаза вибрации в А, [град], {chr(966)}<sub>A</sub>: ', 83)
+        self.x_B_edit_calibration = self.add_row(next(row_count), 'Вибрации в B, [мкм], x<sub>B</sub>: ', 7)
+        self.phi_B_edit_calibration = self.add_row(next(row_count), f'Фаза вибрации в B, [град], {chr(966)}<sub>B</sub>: ', 85)
 
 
 class BalancingGroupbox(BaseGroupbox):
@@ -64,16 +64,16 @@ class BalancingGroupbox(BaseGroupbox):
 
         row_count = count(0, 1)
 
-        self.l_A1_edit_balancing = self.add_row(next(row_count),'l_A1: ' ,75)
-        self.l_12_edit_balancing = self.add_row(next(row_count),'l_12: ' ,195)
-        self.l_2B_edit_balancing = self.add_row(next(row_count),'l_2B: ' ,265)
-        self.n_edit_balancing = self.add_row(next(row_count),'Частота вращения, [об\мин]: ' ,1506)
-        self.k_A_edit_balancing = self.add_row(next(row_count),'Жёсткость в опоре A, []: ' ,1)
-        self.phi_A_edit_balancing = self.add_row(next(row_count),'Фаза в опоре A, [град]: ' ,0)
-        self.k_B_edit_balancing = self.add_row(next(row_count),'Жёсткость в опоре B, []: ' ,1)
-        self.phi_B_edit_balancing = self.add_row(next(row_count),'Фаза в опоре A, [град]: ' ,0)
-        self.r_1_edit_balancing = self.add_row(next(row_count),'r_1: ' ,1)
-        self.r_2_edit_balancing = self.add_row(next(row_count), 'r_2: ' ,1)
+        self.l_A1_edit_balancing = self.add_row(next(row_count),'Длина участка А-1, [мм], l<sub>A1</sub>: ' ,75)
+        self.l_12_edit_balancing = self.add_row(next(row_count),'Длина участка 1-2, [мм], l<sub>12</sub>: ' ,195)
+        self.l_2B_edit_balancing = self.add_row(next(row_count),'Длина участка 2-B, [мм], l<sub>2B</sub>: ' ,265)
+        self.n_edit_balancing = self.add_row(next(row_count),'Частота вращения, [об\мин], n: ' ,1500)
+        self.k_A_edit_balancing = self.add_row(next(row_count),'Жёсткость в опоре A, [Н/мкм], k<sub>A</sub>: ' ,0.84)
+        self.phi_A_edit_balancing = self.add_row(next(row_count),f'Фаза в опоре A, [град], {chr(966)}<sub>A</sub>: ' ,107)
+        self.k_B_edit_balancing = self.add_row(next(row_count),'Жёсткость в опоре B, [Н/мкм], k<sub>B</sub>: ' ,0.38)
+        self.phi_B_edit_balancing = self.add_row(next(row_count),f'Фаза в опоре B, [град], {chr(966)}<sub>B</sub>: ' ,105)
+        self.r_1_edit_balancing = self.add_row(next(row_count),'Радиус груза 1, [мм], R<sub>1</sub>: ' ,62)
+        self.r_2_edit_balancing = self.add_row(next(row_count), 'Радиус груза 2, [мм], R<sub>2</sub>: ' ,62)
 
 
 class Widget(QWidget):
@@ -120,7 +120,7 @@ class Widget(QWidget):
         result_groupbox.setLayout(result_layout)
 
         result_layout.addWidget(QLabel('k<sub>A</sub>=', self), 0, 0)
-        result_layout.addWidget(QLabel('k<sub>N</sub>=', self), 1, 0)
+        result_layout.addWidget(QLabel('k<sub>B</sub>=', self), 1, 0)
 
         self.k_A_edit = QLineEdit(self)
         self.k_B_edit = QLineEdit(self)
@@ -221,6 +221,24 @@ class Widget(QWidget):
                        color='blue', marker='o', markersize=5)
         self.axes.plot([0, D_2.real], [z_2, z_2], [0, D_2.imag],
                        color='blue', marker='o', markersize=5)
+        
+        self.axes.plot([-np.abs(D_1), np.abs(D_1)], [z_1, z_1], [0, 0],
+                color='blue', ls='-.',lw=1,alpha=0.4)
+        self.axes.plot([0, 0], [z_1, z_1], [-np.abs(D_1), np.abs(D_1)],
+                color='blue', ls='-.',lw=1,alpha=0.4)
+        self.axes.plot([-np.abs(D_2), np.abs(D_2)], [z_2, z_2], [0, 0],
+                color='blue', ls='-.',lw=1,alpha=0.4)
+        self.axes.plot([0, 0], [z_2, z_2], [-np.abs(D_2), np.abs(D_2)],
+                color='blue', ls='-.',lw=1,alpha=0.4)
+        
+        self.axes.plot([-np.abs(D_A), np.abs(D_A)], [z_A, z_A], [0, 0],
+                color='red', ls='-.',lw=1,alpha=0.4)
+        self.axes.plot([0, 0], [z_A, z_A], [-np.abs(D_A), np.abs(D_A)],
+                color='red', ls='-.',lw=1,alpha=0.4)
+        self.axes.plot([-np.abs(D_B), np.abs(D_B)], [z_B, z_B], [0, 0],
+                color='red', ls='-.',lw=1,alpha=0.4)
+        self.axes.plot([0, 0], [z_B, z_B], [-np.abs(D_B), np.abs(D_B)],
+                color='red', ls='-.',lw=1,alpha=0.4)
         p1 = Circle((0, 0), np.abs(D_A), color='red', alpha=0.2)
         p2 = Circle((0, 0), np.abs(D_1), color='blue', alpha=0.2)
         p3 = Circle((0, 0), np.abs(D_2), color='blue', alpha=0.2)
@@ -243,7 +261,10 @@ class Widget(QWidget):
         self.axes.text(0, z_1, 0.15*max, r'$z_1$')
         self.axes.text(0, z_2, 0.15*max, r'$z_2$')
         self.axes.text(0, z_B, 0.15*max, r'$z_B$')
+        self.axes.set_xlabel('x, [г$\cdot$мм]')
         self.axes.set_ylabel('z, [мм]')
+        self.axes.set_zlabel('y, [г$\cdot$мм]')
+
         self.axes.set_title('Пересчёт дисбалансов')
         self.axes.set_box_aspect([1, 1.25, 1])
 
@@ -264,9 +285,16 @@ class Widget(QWidget):
         self.axes2.plot([0, 0], [z_min, z_max], [0, 0], lw=5, color='k')
         self.axes2.plot([0, polar(r_1_bal, np.rad2deg(np.angle(M_1))).real], [z_1, z_1], [0, polar(r_1_bal, np.rad2deg(np.angle(M_1))).imag],
                         color='red', marker='o', markersize=5)
-        self.axes2.plot([0, polar(r_2_bal, np.angle(M_2)).real], [z_2, z_2], [0, polar(r_2_bal, np.angle(M_2)).imag],
+        self.axes2.plot([0, polar(r_2_bal, np.rad2deg(np.angle(M_2))).real], [z_2, z_2], [0, polar(r_2_bal, np.rad2deg(np.angle(M_2))).imag],
                         color='red', marker='o', markersize=5)
-
+        self.axes2.plot([-r_1_bal, r_1_bal], [z_1, z_1], [0, 0],
+                        color='blue', ls='-.',lw=1,alpha=0.4)
+        self.axes2.plot([0, 0], [z_1, z_1], [-r_1_bal, r_1_bal],
+                color='blue', ls='-.',lw=1,alpha=0.4)
+        self.axes2.plot([-r_2_bal, r_2_bal], [z_2, z_2], [0, 0],
+                color='blue', ls='-.',lw=1,alpha=0.4)
+        self.axes2.plot([0, 0], [z_2, z_2], [-r_2_bal, r_2_bal],
+                color='blue', ls='-.',lw=1,alpha=0.4)
         p5 = Circle((0, 0), r_1_bal, color='blue', alpha=0.2)
         p6 = Circle((0, 0), r_2_bal, color='blue', alpha=0.2)
 
@@ -279,10 +307,10 @@ class Widget(QWidget):
         max2 = np.max([r_1_bal, r_2_bal])
         self.axes2.set_xlim(-max2, max2)
         self.axes2.set_zlim(-max2, max2)
-        self.axes2.text(0, z_A, 0.15*max2, r'$z_A$')
+        # self.axes2.text(0, z_A, 0.15*max2, r'$z_A$')
         self.axes2.text(0, z_1, 0.15*max2, r'$z_1$')
         self.axes2.text(0, z_2, 0.15*max2, r'$z_2$')
-        self.axes2.text(0, z_B, 0.15*max2, r'$z_B$')
+        # self.axes2.text(0, z_B, 0.15*max2, r'$z_B$')
         self.axes2.set_xlabel('x, [мм]')
         self.axes2.set_ylabel('z, [мм]')
         self.axes2.set_zlabel('y, [мм]')
