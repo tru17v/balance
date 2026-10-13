@@ -1,11 +1,11 @@
 # Калибровка и балансировка жёсткого двухопорного ротора
 
-[![Deploy](https://github.com/tru17v/diamech-balancing/actions/workflows/pages.yml/badge.svg)](https://github.com/tru17v/diamech-balancing/actions/workflows/pages.yml)
+[![Deploy](https://github.com/tru17v/balance/actions/workflows/pages.yml/badge.svg)](https://github.com/tru17v/balance/actions/workflows/pages.yml)
 
 Расчёт динамических жёсткостей опор (калибровка пробными грузами) и корректирующих масс
 (балансировка в двух плоскостях) для жёсткого ротора на двух опорах.
 
-**Веб-версия:** https://tru17v.github.io/diamech-balancing/
+**Веб-версия:** https://tru17v.github.io/balance/
 
 ## Веб-версия
 
