@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Балансировка ротора</title>
+<meta name="description" content="Калибровка опор и балансировка жёсткого двухопорного ротора в двух плоскостях коррекции.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='13' fill='none' stroke='%232563eb' stroke-width='3'/><circle cx='16' cy='16' r='3' fill='%232563eb'/><circle cx='24' cy='10' r='3.5' fill='%23dc2626'/></svg>">
+<script>
+  // Тема применяется до отрисовки, чтобы не было вспышки светлого фона
+  try { const t = localStorage.getItem('diamech-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="16" cy="16" r="3" fill="currentColor"/><circle cx="24" cy="10" r="3.5" class="logo-dot"/></svg>
+    <div>
+      <h1>Балансировка жёсткого ротора</h1>
+      <p class="subtitle">Калибровка опор пробными грузами и расчёт корректирующих масс в двух плоскостях</p>
+    </div>
+  </div>
+  <div class="toolbar">
+    <button type="button" class="btn ghost" id="copy-report" title="Скопировать исходные данные и результаты">Копировать отчёт</button>
+    <button type="button" class="btn ghost" id="reset" title="Вернуть значения по умолчанию">Сбросить</button>
+    <button type="button" class="btn ghost icon" id="theme" aria-label="Тема оформления" title="Тема: авто"></button>
+  </div>
+</header>
+
+<main class="layout">
+  <div class="inputs">
+
+    <!-- 1. Ротор -->
+    <section class="card">
+      <h2><span class="step">1</span>Ротор и режим</h2>
+      <div class="segmented" role="radiogroup" aria-label="Схема расположения плоскостей" id="schemes"></div>
+      <p class="hint" id="scheme-title"></p>
+      <svg class="rotor" id="rotor" viewBox="0 0 640 200" role="img" aria-label="Схема ротора"></svg>
+      <div class="grid4">
+        <label class="field"><span>l<sub>A1</sub> <small>A–1</small></span><span class="input-unit"><input type="number" step="any" data-key="a"><i>мм</i></span></label>
+        <label class="field"><span>l<sub>12</sub> <small>1–2</small></span><span class="input-unit"><input type="number" step="any" data-key="b"><i>мм</i></span></label>
+        <label class="field"><span>l<sub>2B</sub> <small>2–B</small></span><span class="input-unit"><input type="number" step="any" data-key="c"><i>мм</i></span></label>
+        <label class="field"><span>n <small>частота вращения</small></span><span class="input-unit"><input type="number" step="any" data-key="rpm"><i>об/мин</i></span></label>
+      </div>
+    </section>
+
+    <!-- 2. Калибровка -->
+    <section class="card">
+      <h2><span class="step">2</span>Калибровка опор</h2>
+
+      <h3>Пуск 0 — без пробных грузов</h3>
+      <label class="check"><input type="checkbox" data-key="x0on"> Ротор не уравновешен — учитывать пуск 0</label>
+      <div class="table vib" id="x0-block">
+        <div class="th"></div><div class="th">Амплитуда</div><div class="th">Фаза</div>
+        <div class="rh">Опора A</div>
+        <span class="input-unit"><input type="number" step="any" data-key="x0A" aria-label="Пуск 0: амплитуда, опора A"><i>мкм</i></span>
+        <span class="input-unit"><input type="number" step="any" data-key="x0Aphi" aria-label="Пуск 0: фаза, опора A"><i>°</i></span>
+        <div class="rh">Опора B</div>
+        <span class="input-unit"><input type="number" step="any" data-key="x0B" aria-label="Пуск 0: амплитуда, опора B"><i>мкм</i></span>
+        <span class="input-unit"><input type="number" step="any" data-key="x0Bphi" aria-label="Пуск 0: фаза, опора B"><i>°</i></span>
+      </div>
+      <p class="hint" id="x0-hint">Без пуска 0 ротор считается уравновешенным до калибровки (например, эталонный ротор на стенде).</p>
+
+      <h3>Пробные грузы <small>устанавливаются в обе плоскости одновременно</small></h3>
+      <div class="table trial">
+        <div class="th"></div><div class="th">Масса</div><div class="th">Радиус</div><div class="th">Угол</div>
+        <div class="rh">Плоскость 1</div>
+        <span class="input-unit"><input type="number" step="any" data-key="t1m" aria-label="Масса пробного груза 1"><i>г</i></span>
+        <span class="input-unit"><input type="number" step="any" data-key="t1r" aria-label="Радиус пробного груза 1"><i>мм</i></span>
+        <span class="input-unit"><input type="number" step="any" data-key="t1phi" aria-label="Угол пробного груза 1"><i>°</i></span>
+        <div class="rh">Плоскость 2</div>
+        <span class="input-unit"><input type="number" step="any" data-key="t2m" aria-label="Масса пробного груза 2"><i>г</i></span>
+        <span class="input-unit"><input type="number" step="any" data-key="t2r" aria-label="Радиус пробного груза 2"><i>мм</i></span>
+        <span class="input-unit"><input type="number" step="any" data-key="t2phi" aria-label="Угол пробного груза 2"><i>°</i></span>
+      </div>
+
+      <h3>Пуск 1 — с пробными грузами</h3>
+      <div class="table vib" id="x1-block">
+        <div class="th"></div><div class="th">Амплитуда</div><div class="th">Фаза</div>
+        <div class="rh">Опора A</div>
+        <span class="input-unit"><input type="number" step="any" data-key="x1A" aria-label="Пуск 1: амплитуда, опора A"><i>мкм</i></span>
+        <span class="input-unit"><input type="number" step="any" data-key="x1Aphi" aria-label="Пуск 1: фаза, опора A"><i>°</i></span>
+        <div class="rh">Опора B</div>
+        <span class="input-unit"><input type="number" step="any" data-key="x1B" aria-label="Пуск 1: амплитуда, опора B"><i>мкм</i></span>
+        <span class="input-unit"><input type="number" step="any" data-key="x1Bphi" aria-label="Пуск 1: фаза, опора B"><i>°</i></span>
+      </div>
+
+      <details class="note">
+        <summary>Единицы и отсчёт углов</summary>
+        <p>Вибрацию можно вводить в любых единицах (мкм, мм/с), если они одинаковы во всех пусках: на массы и углы грузов это не влияет, меняется только единица жёсткости k.</p>
+        <p>Углы грузов отсчитываются от той же метки и в том же направлении, что и фаза прибора, — иначе расчёт даст неверный угол.</p>
+      </details>
+    </section>
+
+    <!-- 3. Балансировка -->
+    <section class="card">
+      <h2><span class="step">3</span>Балансировка</h2>
+      <h3>Вибрации до балансировки <small>пробные грузы сняты</small></h3>
+      <label class="check" id="xFromX0-row"><input type="checkbox" data-key="xFromX0"> Совпадают с пуском 0</label>
+      <div class="table vib" id="x-block">
+        <div class="th"></div><div class="th">Амплитуда</div><div class="th">Фаза</div>
+        <div class="rh">Опора A</div>
+        <span class="input-unit"><input type="number" step="any" data-key="xA" aria-label="До балансировки: амплитуда, опора A"><i>мкм</i></span>
+        <span class="input-unit"><input type="number" step="any" data-key="xAphi" aria-label="До балансировки: фаза, опора A"><i>°</i></span>
+        <div class="rh">Опора B</div>
+        <span class="input-unit"><input type="number" step="any" data-key="xB" aria-label="До балансировки: амплитуда, опора B"><i>мкм</i></span>
+        <span class="input-unit"><input type="number" step="any" data-key="xBphi" aria-label="До балансировки: фаза, опора B"><i>°</i></span>
+      </div>
+      <p class="hint">Доводочный пуск: введите вибрации после установки грузов — получите добавочные грузы к уже установленным.</p>
+
+      <h3>Установка корректирующих грузов</h3>
+      <div class="table trial place">
+        <div class="th"></div><div class="th">Радиус</div><div class="th">Число позиций</div><div class="th">Угол позиции №1</div>
+        <div class="rh">Плоскость 1</div>
+        <span class="input-unit"><input type="number" step="any" data-key="r1" aria-label="Радиус установки груза 1"><i>мм</i></span>
+        <span class="input-unit"><input type="number" step="1" min="0" data-key="pos1" aria-label="Число позиций в плоскости 1"><i>шт</i></span>
+        <span class="input-unit"><input type="number" step="any" data-key="off1" aria-label="Угол позиции №1 в плоскости 1"><i>°</i></span>
+        <div class="rh">Плоскость 2</div>
+        <span class="input-unit"><input type="number" step="any" data-key="r2" aria-label="Радиус установки груза 2"><i>мм</i></span>
+        <span class="input-unit"><input type="number" step="1" min="0" data-key="pos2" aria-label="Число позиций в плоскости 2"><i>шт</i></span>
+        <span class="input-unit"><input type="number" step="any" data-key="off2" aria-label="Угол позиции №1 в плоскости 2"><i>°</i></span>
+      </div>
+      <p class="hint">Число позиций — отверстия или пазы, равномерно расположенные по окружности; 0 — груз ставится под любым углом. Груз раскладывается по двум соседним позициям.</p>
+
+      <h3>Жёсткости опор</h3>
+      <div class="segmented small" role="radiogroup" aria-label="Источник жёсткостей">
+        <label><input type="radio" name="kSource" value="cal" data-key="kSource"><span>Из калибровки</span></label>
+        <label><input type="radio" name="kSource" value="manual" data-key="kSource"><span>Ввести вручную</span></label>
+      </div>
+      <div class="table vib" id="k-block">
+        <div class="th"></div><div class="th">Модуль k</div><div class="th">Фаза</div>
+        <div class="rh">Опора A</div>
+        <span class="input-unit"><input type="number" step="any" data-key="kA" aria-label="Жёсткость опоры A"><i>Н/мкм</i></span>
+        <span class="input-unit"><input type="number" step="any" data-key="kAphi" aria-label="Фаза жёсткости A"><i>°</i></span>
+        <div class="rh">Опора B</div>
+        <span class="input-unit"><input type="number" step="any" data-key="kB" aria-label="Жёсткость опоры B"><i>Н/мкм</i></span>
+        <span class="input-unit"><input type="number" step="any" data-key="kBphi" aria-label="Фаза жёсткости B"><i>°</i></span>
+      </div>
+      <p class="hint">Ручной ввод — если опоры уже откалиброваны ранее на этой же частоте вращения: динамическая жёсткость от неё зависит.</p>
+    </section>
+
+    <!-- 4. Допуск -->
+    <section class="card">
+      <h2><span class="step">4</span>Допуск по ГОСТ 22061-76</h2>
+      <label class="check"><input type="checkbox" data-key="tolOn"> Сравнивать дисбаланс с допустимым</label>
+      <div class="grid4" id="tol-block">
+        <label class="field"><span>m<sub>рот</sub> <small>масса ротора</small></span><span class="input-unit"><input type="number" step="any" data-key="massKg"><i>кг</i></span></label>
+        <label class="field"><span>Класс <small>точности</small></span><select data-key="gClass" id="gclass"></select></label>
+        <label class="field"><span>n<sub>max</sub> <small>эксплуатационная</small></span><span class="input-unit"><input type="number" step="any" data-key="rpmMax"><i>об/мин</i></span></label>
+        <label class="field"><span>L<sub>ц</sub> <small>A — центр масс</small></span><span class="input-unit"><input type="number" step="any" data-key="cm"><i>мм</i></span></label>
+      </div>
+      <p class="hint" id="tol-info"></p>
+    </section>
+  </div>
+
+  <!-- Результаты -->
+  <aside class="results">
+    <div class="alerts" id="alerts" aria-live="polite"></div>
+    <div class="verdict" id="verdict" hidden></div>
+    <section class="card">
+      <h2>Корректирующие грузы</h2>
+      <div class="weights">
+        <div class="weight" id="w1"></div>
+        <div class="weight" id="w2"></div>
+      </div>
+      <p class="hint">Углы — в той же системе отсчёта, что у пробных грузов. Вместо установки груза можно снять ту же массу на том же радиусе под углом дисбаланса.</p>
+    </section>
+
+    <section class="card">
+      <h2>Жёсткости опор</h2>
+      <dl class="stats">
+        <div><dt>k<sub>A</sub></dt><dd id="kA-out">—</dd></div>
+        <div><dt>k<sub>B</sub></dt><dd id="kB-out">—</dd></div>
+      </dl>
+      <p class="hint" id="k-note"></p>
+    </section>
+
+
+    <details class="card plots" id="plots" open>
+      <summary><h2>3D-визуализация</h2></summary>
+      <div class="plot" id="plot1"></div>
+      <div class="plot" id="plot2"></div>
+    </details>
+  </aside>
+</main>
+
+<footer class="footer">
+  Модель: жёсткий ротор на двух независимых опорах, x = D / k. Расчёт выполняется в браузере.
+  <a href="https://github.com/tru17v/diamech-balancing">Исходный код</a>
+</footer>
+
+<script src="core.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
